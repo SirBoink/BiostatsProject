@@ -1,0 +1,18 @@
+{
+    "input_dim": 19,
+    "categorical_cols": [
+        "city",
+        "locality_type",
+        "parking",
+        "gym",
+        "swimming_pool"
+    ],
+    "numerical_cols": [
+        "sq_footage",
+        "bedrooms",
+        "bathrooms",
+        "floor",
+        "age_years"
+    ],
+    "model_version": "1.0"
+}
