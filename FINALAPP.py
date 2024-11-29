@@ -246,7 +246,7 @@ st.sidebar.markdown("""
         </div>
         <div class="creator-item">
             <div class="creator-name">Course Code</div>
-            <div class="creator-id">{something}</div>
+            <div class="creator-id">MAT3015</div>
         </div>
     </div>
 """, unsafe_allow_html=True)
