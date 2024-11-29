@@ -218,10 +218,14 @@ with st.sidebar:
         </div>
     """, unsafe_allow_html=True)
     
-    st.markdown('<h2 class="gold-heading">Creators</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="gold-heading">Team Members</h2>', unsafe_allow_html=True)
     
     st.markdown("""
         <div class="container">
+            <div class="creator-item">
+                <div class="creator-name">Name: Quato</div>
+                <div class="creator-id">Created using the last letters of our first names</div> 
+            </div>
             <div class="creator-item">
                 <div class="creator-name">R Vishnu Shankar</div>
                 <div class="creator-id">23BOE10117</div>
