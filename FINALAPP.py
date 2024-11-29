@@ -1,4 +1,6 @@
-#STREAMLIT APP
+####################
+#     IMPORTS     #
+####################
 
 import streamlit as st
 import pandas as pd
@@ -8,10 +10,19 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
+####################
+#  PAGE CONFIG    #
+####################
+
 st.set_page_config(
     page_title="Housing Price Prediction",
     layout="wide"
 )
+
+####################
+#     STYLES      #
+####################
+
 st.markdown("""
     <style>
     @keyframes shimmer {
@@ -191,7 +202,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Update the sidebar content
+####################
+#    SIDEBAR      #
+####################
+
 with st.sidebar:
     st.markdown('<h2 class="gold-heading">About</h2>', unsafe_allow_html=True)
     st.markdown("""
@@ -251,29 +265,11 @@ st.sidebar.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Main content sections
-st.markdown("""
-    <style>
-    .slate-title {
-        background: linear-gradient(
-            90deg, 
-            rgba(148, 163, 184, 0.8) 0%, 
-            rgba(203, 213, 225, 0.8) 20%, 
-            rgba(148, 163, 184, 0.8) 40%, 
-            rgba(203, 213, 225, 0.8) 60%, 
-            rgba(148, 163, 184, 0.8) 80%, 
-            rgba(203, 213, 225, 0.8) 100%
-        );
-        background-size: 1000px 100%;
-        animation: shimmer 8s infinite linear;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-weight: bold;
-        font-size: 2.5em;
-    }
-    </style>
+####################
+#  MAIN CONTENT   #
+####################
 
+st.markdown("""
     <div class="main-title">    
         <h1 style="
             background: linear-gradient(
@@ -303,65 +299,9 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# About Linear Regression section
-st.markdown('<h2 class="slate-heading-shimmer">About Linear Regression</h2>', unsafe_allow_html=True)
-
-
-st.markdown("""
-    - Linear Regression is like drawing the best straight line through a scatter plot of house sizes and prices. The goal? Predict house prices based on size. The line shows how price changes as size increases, and we find the line that minimizes the distance between actual prices and predictions. It's simple, easy to interpret, and works well when price changes in a consistent, linear way. But beware—if data points are way off, they can mess up the predictions. Despite its limits, Linear Regression is a great way to start predicting trends like house prices!
-    - But it can also be a little hard to implement sometimes, but don't worry even if you're only finding constellations instead of the best fit lines!
-""")
-
-# Center the meme image using Streamlit's layout
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    st.image("assets/meme.png", caption="Linear Regression Meme", width=400)
-
-st.markdown("---")
-
-st.markdown("**Mathematical Foundation:**")
-st.latex(r"Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \ldots + \beta_nX_n + \epsilon")
-st.markdown("""
-    where:
-    - Y is the predicted value
-    - β₀ is the y-intercept (bias)
-    - βᵢ are the coefficients
-    - Xᵢ are the feature values
-    - ε is the error term
-""")
-
-st.markdown("---")
-
-st.markdown("**Mean Squared Error (MSE):**")
-st.latex(r"MSE = \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2")
-st.markdown("""
-    - MSE is a measure of the average of the squares of the errors—that is, the average squared difference between the estimated values (\\(\hat{Y}_i\\)) and the actual value (\\(Y_i\\)).
-    - It is used to assess the quality of a linear regression model, with lower values indicating a better fit.
-""")
-
-st.markdown("---")
-
-# Image
-st.image("assets/linear_regression.png", caption="Linear Regression Visualization", use_container_width=True)
-
-st.markdown("---")
-
-st.markdown("**Key Statistical Concepts:**")
-st.markdown("""
-    - **Ordinary Least Squares (OLS):** Minimizes the sum of squared differences between predicted and actual values
-    - **R-squared (R²):** Measures the proportion of variance explained
-    - **P-value:** Indicates statistical significance
-""")
-
-st.markdown("---")
-
-st.markdown("**Assumptions:**")
-st.markdown("""
-    - **Linearity:** Relationship between variables is linear
-    - **Independence:** Observations are independent
-    - **Homoscedasticity:** Constant variance in errors
-    - **Normality:** Residuals are normally distributed
-""")
+####################
+#   PREDICTION    #
+####################
 
 # Prediction Model section
 st.markdown('<h2 class="slate-heading-shimmer">Prediction Model</h2>', unsafe_allow_html=True)
@@ -730,6 +670,69 @@ if predict_clicked:
 
     except Exception as e:
         st.error(f"An error occurred during prediction: {str(e)}")
+
+#############################
+#  REGRESSION  INFORMATION  #
+#############################       
+
+st.markdown('<h2 class="slate-heading-shimmer">About Linear Regression</h2>', unsafe_allow_html=True)
+
+st.markdown("""
+    - Linear Regression is like drawing the best straight line through a scatter plot of house sizes and prices. The goal? Predict house prices based on size. The line shows how price changes as size increases, and we find the line that minimizes the distance between actual prices and predictions. It's simple, easy to interpret, and works well when price changes in a consistent, linear way. But beware—if data points are way off, they can mess up the predictions. Despite its limits, Linear Regression is a great way to start predicting trends like house prices!
+    - But it can also be a little hard to implement sometimes, but don't worry even if you're only finding constellations instead of the best fit lines!
+""")
+
+# Center the meme image using Streamlit's layout
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image("assets/meme.png", caption="Linear Regression Meme", width=400)
+
+st.markdown("---")
+
+st.markdown("**Mathematical Foundation:**")
+st.latex(r"Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \ldots + \beta_nX_n + \epsilon")
+st.markdown("""
+    where:
+    - Y is the predicted value
+    - β₀ is the y-intercept (bias)
+    - βᵢ are the coefficients
+    - Xᵢ are the feature values
+    - ε is the error term
+""")
+
+st.markdown("---")
+
+st.markdown("**Mean Squared Error (MSE):**")
+st.latex(r"MSE = \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2")
+st.markdown("""
+    - MSE is a measure of the average of the squares of the errors—that is, the average squared difference between the estimated values (\\(\hat{Y}_i\\)) and the actual value (\\(Y_i\\)).
+    - It is used to assess the quality of a linear regression model, with lower values indicating a better fit.
+""")
+
+st.markdown("---")
+
+# Image
+st.image("assets/linear_regression.png", caption="Linear Regression Visualization", use_container_width=True)
+
+st.markdown("---")
+
+st.markdown("**Key Statistical Concepts:**")
+st.markdown("""
+    - **Ordinary Least Squares (OLS):** Minimizes the sum of squared differences between predicted and actual values
+    - **R-squared (R²):** Measures the proportion of variance explained
+    - **P-value:** Indicates statistical significance
+""")
+
+st.markdown("---")
+
+st.markdown("**Assumptions:**")
+st.markdown("""
+    - **Linearity:** Relationship between variables is linear
+    - **Independence:** Observations are independent
+    - **Homoscedasticity:** Constant variance in errors
+    - **Normality:** Residuals are normally distributed
+""")
+
 
 # About the Model section
 st.markdown('<h2 class="slate-heading-shimmer">About the Model</h2>', unsafe_allow_html=True)
